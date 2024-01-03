@@ -59,9 +59,29 @@ Developed by: Revanth palagiri
 RegisterNumber:  23002622
 
 program:
-![image](https://github.com/Revanth-2717/Exp-7-Synchornous-counters-/assets/152462274/4bc017c3-c483-4917-9225-44bfc74aa752)
+UP COUNTER:
+module upcounter(clk,q1,q2,q3):
+input clk;
+output reg q1,q2,q3;
+always@(posedge clk)
+begin
+q3=(q1&q2)^q3
+q2=q1^q2;
+q1=1^q1;
+end
+endmodule
 
-
+Down Counter:
+module downcounter(clk,q1,q2,q3);
+input clk;
+output reg q1,q2,q3;
+always@(posedge clk)
+begin
+q3 = ((~q1)&(~q2))^q3;
+q2 = (~q1)^q2;
+q1 = 1^q1;
+end
+endmodule
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 ![ Image 2024-01-03 at 12 12 37_c80698f7](https://github.com/Revanth-2717/Exp-7-Synchornous-counters-/assets/152462274/5fc01107-d8f3-4635-9f2a-91ca36bf989d)
